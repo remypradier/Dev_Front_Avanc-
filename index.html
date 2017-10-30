@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    body
+    {
+    background: #bbb;
+    }
+    .clavier
+    {
+    width: 60%;
+    margin: auto;
+    }
+    .key
+    {
+    height: 100px;
+    width: 100px;
+    background: #ddd;
+    float: left;
+    text-align: center;
+    border: 1px solid #fff;
+    color: #fff;
+    font-weight: bold;
+    list-style: none;
+    font-size: 8vh;
+    text-transform: uppercase;
+    padding: 1%;
+    margin: 1%;
+    border-radius: 20px;
+    }
+
+    .active
+    {
+    /*font-size: 30px;*/
+    background: lightblue;
+    color: #bbbbbb;
+    }
+  </style>
+
+</head>
+<body>
+  <h1 class="errors"></h1>
+  <section class="clavier">
+		<ul>
+			<li class="key key_65">a</li>
+			<li class="key key_66">b</li>
+			<li class="key key_67">c</li>
+			<li class="key key_68">d</li>
+			<li class="key key_69">e</li>
+			<li class="key key_70">f</li>
+			<li class="key key_71">g</li>
+			<li class="key key_72">h</li>
+			<li class="key key_73">i</li>
+			<li class="key key_74">j</li>
+			<li class="key key_75">k</li>
+			<li class="key key_76">l</li>
+			<li class="key key_77">m</li>
+			<li class="key key_78">n</li>
+			<li class="key key_79">o</li>
+			<li class="key key_80">p</li>
+			<li class="key key_81">q</li>
+			<li class="key key_82">r</li>
+			<li class="key key_83">s</li>
+			<li class="key key_84">t</li>
+			<li class="key key_85">u</li>
+			<li class="key key_86">v</li>
+			<li class="key key_87">w</li>
+			<li class="key key_88">x</li>
+			<li class="key key_89">y</li>
+			<li class="key key_90">z</li>
+		</ul>
+	</section>
+</body>
+
+<script>
+  var HtmlErrors = document.querySelector('.errors');
+  var WordToFind = '';
+  var WordBuild = [];
+  var RandomNumber;
+  var Letter;
+  var LettersSelected = [];
+  var WordsToFind = [
+    'maison',
+    'portable',
+    'table',
+    'chien',
+    'porte'
+  ];
+  var keys = document.querySelectorAll('.key');
+  var Errors = 0;
+  var MaxErrors = 9;
+
+  HtmlErrors.innerHTML = 'Erreurs: ' + Errors;
+
+  RandomNumber = Math.floor(Math.random() * 5);
+  WordToFind = WordsToFind[RandomNumber].split('');
+
+  for(var i = 0; i < WordsToFind.length; i++) {
+    WordBuild.push('');
+    console.log(WordBuild);
+  }
+
+  for(var i = 0; i < keys.length; i++) {
+    keys[i].addEventListener('click', function() {
+      Letter = this.innerHTML;
+
+      if(Errors < MaxErrors) {
+        if(CheckLetters(Letter,LettersSelected) === false) {
+          CheckLetterWord(Letter, WordToFind, WordBuild, LettersSelected, Errors);
+        }
+      } else {
+        Console.log('Du-per !!!');
+      }
+
+
+
+
+      console.log(Letter);
+    })
+  }
+
+  function YouMad(Errors) {
+    Errors++;
+    HtmlErrors.innerHTML = 'Erreurs: ' + Errors;
+    console.log(Errors);
+  }
+
+  function CheckLetterWord(Letter, WordToFind, WordBuild, LettersSelected, Errors) {
+
+      for(var i = 0; i < WordToFind.length; i++) {
+        if(WordToFind[i] === Letter) {
+          WordBuild[i] = Letter;
+          console.log(WordBuild);
+        }
+
+      }
+      LettersSelected.push(Letter);
+
+
+
+    }
+
+  function CheckLetters(letter, LettersSelected) {
+    if(LettersSelected.indexOf(Letter) !== -1) {
+      return(true);
+    } else {
+      return(false);
+    }
+
+  }
+
+
+
+
+</script>
+</html>
