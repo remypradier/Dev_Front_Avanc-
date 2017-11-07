@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #FCFCFC;
+  font-family: 'Maven Pro', sans-serif;
+}
+
+.clavier {
+  width: 70%;
+  margin: auto;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.key {
+  height: 80px;
+  width: 80px;
+  margin: 10px;
+  line-height: 150%;
+  border-radius: 10px;
+
+  background: #3498DB;
+  color: #fff;
+
+  font-size: 5vh;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+
+  list-style: none;
+  cursor: pointer;
+}
+
+.selected {
+  opacity: 0.5;
+}
+
+.infos {
+  display: flex;
+  width: 90%;
+  margin: 2.5vh auto 10vh auto;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.word, .title {
+  text-align: center;
+}
+
+.canvas {
+  margin: 5vh auto 0 auto;
+}
+
+.replay {
+  margin: 6vh auto 0 auto;
+  width: 250px;
+  height: 50px;
+
+  clear: both;
+  border: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /*visibility: hidden;*/
+
+  background: #3498DB;
+  color: #fff;
+
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.redletter {
+  color: #E74C3C;
+}
