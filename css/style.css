@@ -8,7 +8,7 @@ body {
   font-family: 'Maven Pro', sans-serif;
 }
 
-.clavier {
+.keyboard {
   width: 70%;
   margin: auto;
 
@@ -75,6 +75,9 @@ body {
   cursor: pointer;
 }
 
+.greenletter {
+  color: #2ECC71;
+}
 .redletter {
   color: #E74C3C;
 }
